@@ -22,11 +22,12 @@ vel_mag = vel_mag_unmask[~mask]
 accel = accel_unmask[~mask]
 
 # Plotting 
-plt.plot(t, alt, label='Altitude (m)')
-plt.plot(t, vel, label='Velocity (m/s)')
+plt.plot(t, alt, label='Altitude (m)', color='blue')
+plt.plot(t, vel, label='Velocity (m/s)', color='green')
 # plt.plot(t, accel, label='Acceleration (m/s²)')
-plt.legend()
-plt.show()
-ax2 = plt.twinx()
-ax2.plot(t, accel, label='Acceleration (m/s²)')
+ax = plt.gca()
+ax.set_ylim(0, 6500)
+ax2 = ax.twinx()
+ax2.plot(t, accel, label='Acceleration (m/s²)', color='purple')
 
+plt.show()
